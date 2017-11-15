@@ -3,6 +3,7 @@ package br.edu.qi.model;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,6 +65,35 @@ public class Acessorio  implements java.io.Serializable {
     
     public void setCarroAcessorios(Set<CarroAcessorio> carroAcessorios) {
         this.carroAcessorios = carroAcessorios;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.nomeAcessorio);
+        hash = 89 * hash + Objects.hashCode(this.carroAcessorios);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Acessorio other = (Acessorio) obj;
+        if (!Objects.equals(this.nomeAcessorio, other.nomeAcessorio)) {
+            return false;
+        }
+        if (!Objects.equals(this.carroAcessorios, other.carroAcessorios)) {
+            return false;
+        }
+        return true;
     }
 
 

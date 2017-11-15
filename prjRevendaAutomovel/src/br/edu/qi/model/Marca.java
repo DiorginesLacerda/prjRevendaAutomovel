@@ -3,6 +3,7 @@ package br.edu.qi.model;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,6 +65,35 @@ public class Marca  implements java.io.Serializable {
     
     public void setModelos(Set<Modelo> modelos) {
         this.modelos = modelos;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.nomeMarca);
+        hash = 97 * hash + Objects.hashCode(this.modelos);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Marca other = (Marca) obj;
+        if (!Objects.equals(this.nomeMarca, other.nomeMarca)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelos, other.modelos)) {
+            return false;
+        }
+        return true;
     }
 
 

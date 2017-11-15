@@ -2,6 +2,7 @@ package br.edu.qi.model;
 // Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -64,6 +65,35 @@ public class CarroAcessorio  implements java.io.Serializable {
     
     public void setCarro(Carro carro) {
         this.carro = carro;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.acessorio);
+        hash = 37 * hash + Objects.hashCode(this.carro);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CarroAcessorio other = (CarroAcessorio) obj;
+        if (!Objects.equals(this.acessorio, other.acessorio)) {
+            return false;
+        }
+        if (!Objects.equals(this.carro, other.carro)) {
+            return false;
+        }
+        return true;
     }
 
 

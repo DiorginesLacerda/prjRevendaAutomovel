@@ -3,6 +3,7 @@ package br.edu.qi.model;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -125,6 +126,55 @@ public class Carro  implements java.io.Serializable {
     
     public void setVendas(Set<Venda> vendas) {
         this.vendas = vendas;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.modelo);
+        hash = 83 * hash + Objects.hashCode(this.cor);
+        hash = 83 * hash + Objects.hashCode(this.descricao);
+        hash = 83 * hash + Objects.hashCode(this.estado);
+        hash = 83 * hash + Objects.hashCode(this.km);
+        hash = 83 * hash + Objects.hashCode(this.carroAcessorios);
+        hash = 83 * hash + Objects.hashCode(this.vendas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Carro other = (Carro) obj;
+        if (!Objects.equals(this.cor, other.cor)) {
+            return false;
+        }
+        if (!Objects.equals(this.descricao, other.descricao)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.estado, other.estado)) {
+            return false;
+        }
+        if (!Objects.equals(this.km, other.km)) {
+            return false;
+        }
+        if (!Objects.equals(this.carroAcessorios, other.carroAcessorios)) {
+            return false;
+        }
+        if (!Objects.equals(this.vendas, other.vendas)) {
+            return false;
+        }
+        return true;
     }
 
 
