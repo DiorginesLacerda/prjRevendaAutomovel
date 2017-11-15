@@ -5,10 +5,18 @@
  */
 package br.edu.qi.dao;
 
+import br.edu.qi.dao.GenericDao;
+import br.edu.qi.model.Venda;
+import java.io.Serializable;
+
 /**
  *
  * @author Diorgines
  */
-class List<T> {
+public class VendaDao extends GenericDao<Venda, Serializable>{
+    
+    public VendaDao(Venda entity) {
+        super(entity);
+    }
     
 }

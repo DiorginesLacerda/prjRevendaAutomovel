@@ -32,11 +32,15 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
     }
 
     public void save(T e) throws Exception {
-        s = HibernateUtil.getSessionFactory().openSession();
-        t = s.beginTransaction();
-        s.save(e);
-        t.commit();
-        s.close();
+        if(!find(e)){
+            s = HibernateUtil.getSessionFactory().openSession();
+            t = s.beginTransaction();
+            s.save(e);
+            t.commit();
+            s.close();
+        }
+        else
+            throw new Exception(String.format("Impossível cadastrar,{0} já existe no banco", e.getClass().getName()));  
     }
 
     public void update(T e) throws Exception {
@@ -80,6 +84,16 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
         T e = (T) s.get(entity.getClass(), cod);
         s.close();
         return e;
+    }
+    
+    public boolean find(T t) throws Exception{
+        List<T> list = this.findAll();
+        for(T t1:list){
+            if(t1.equals(t)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
