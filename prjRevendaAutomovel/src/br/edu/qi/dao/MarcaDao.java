@@ -17,11 +17,11 @@ public class MarcaDao extends GenericDao<Marca, Serializable> {
     private static MarcaDao instance;
     private static Marca marca;
     
-    private MarcaDao(Marca entity) {
+    private MarcaDao(Marca entity) throws Exception {
         super(entity);
     }
     
-    public static MarcaDao getInstance(){
+    public static MarcaDao getInstance() throws Exception{
         if(instance == null)
             instance = new MarcaDao(marca);
         return instance;

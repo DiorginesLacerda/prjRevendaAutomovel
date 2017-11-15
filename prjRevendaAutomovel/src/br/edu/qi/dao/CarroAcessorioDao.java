@@ -17,11 +17,11 @@ public class CarroAcessorioDao extends GenericDao<CarroAcessorio, Serializable>{
     private static CarroAcessorioDao instance;
     private static CarroAcessorio carroAcessorio;
     
-    private CarroAcessorioDao(CarroAcessorio entity) {
+    private CarroAcessorioDao(CarroAcessorio entity) throws Exception {
         super(entity);
     }
     
-    public static CarroAcessorioDao getInstance(){
+    public static CarroAcessorioDao getInstance() throws Exception{
         if(instance == null)
             instance = new CarroAcessorioDao(carroAcessorio);
         return instance;

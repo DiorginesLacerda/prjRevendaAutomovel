@@ -17,11 +17,11 @@ public class ParcelaDao extends GenericDao<Parcela, Serializable>{
     private static ParcelaDao instance;
     private static Parcela parcela;
     
-    private ParcelaDao(Parcela entity) {
+    private ParcelaDao(Parcela entity) throws Exception {
         super(entity);
     }
     
-    public static ParcelaDao getInstance(){
+    public static ParcelaDao getInstance() throws Exception{
         if(instance == null)
             instance = new ParcelaDao(parcela);
         return instance;

@@ -18,11 +18,11 @@ public class VendaDao extends GenericDao<Venda, Serializable>{
     private static VendaDao instance;
     private static Venda venda;
     
-    private VendaDao(Venda entity) {
+    private VendaDao(Venda entity) throws Exception {
         super(entity);
     }
     
-    public static VendaDao getInstance(){
+    public static VendaDao getInstance() throws Exception{
         if(instance == null){
             instance = new VendaDao(venda);
         }

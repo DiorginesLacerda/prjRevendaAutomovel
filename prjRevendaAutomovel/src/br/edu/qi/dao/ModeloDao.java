@@ -17,11 +17,11 @@ public class ModeloDao extends GenericDao<Modelo, Serializable>{
     private static ModeloDao instance;
     private static Modelo modelo;
     
-    private ModeloDao(Modelo entity) {
+    private ModeloDao(Modelo entity) throws Exception {
         super(entity);
     }
     
-    public static ModeloDao getInstance(){
+    public static ModeloDao getInstance() throws Exception{
         if( instance == null)
             instance = new ModeloDao(modelo);
         return instance;

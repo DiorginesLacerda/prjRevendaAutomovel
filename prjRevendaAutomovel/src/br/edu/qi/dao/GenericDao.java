@@ -7,6 +7,7 @@ package br.edu.qi.dao;
 
 import br.edu.qi.util.HibernateUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Criteria;
@@ -26,21 +27,27 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
     Criteria c;
 
     T entity;
+    private List<T> list;
 
-    public GenericDao(T entity) {
+    public GenericDao(T entity) throws Exception {
         this.entity = entity;
+        this.list = findAll();
     }
 
     public void save(T e) throws Exception {
-        if(!find(e)){
+        try {
+            if(find(e)==null){
             s = HibernateUtil.getSessionFactory().openSession();
             t = s.beginTransaction();
             s.save(e);
             t.commit();
             s.close();
+            //atualiza o arrayLocal
+            list.add(find(e));
         }
-        else
-            throw new Exception(String.format("Impossível cadastrar,{0} já existe no banco", e.getClass().getName()));  
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public void update(T e) throws Exception {
@@ -86,14 +93,14 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
         return e;
     }
     
-    public boolean find(T t) throws Exception{
+    public T find(T t) throws Exception{
         List<T> list = this.findAll();
         for(T t1:list){
             if(t1.equals(t)){
-                return true;
+                return t1;
             }
         }
-        return false;
+        return null;
     }
 
 }

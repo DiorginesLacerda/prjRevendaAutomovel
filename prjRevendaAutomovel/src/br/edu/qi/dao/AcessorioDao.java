@@ -16,11 +16,11 @@ public class AcessorioDao extends GenericDao<Acessorio, Serializable>{
     
     private static AcessorioDao instance;
     private static Acessorio acessorio;
-    private AcessorioDao(Acessorio entity) {
+    private AcessorioDao(Acessorio entity) throws Exception {
         super(entity);
     }
     
-    public static AcessorioDao getInstance(){
+    public static AcessorioDao getInstance() throws Exception{
         if(instance==null)
             instance = new AcessorioDao(acessorio);
         return instance;

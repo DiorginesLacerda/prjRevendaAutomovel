@@ -5,22 +5,19 @@
  */
 package br.edu.qi.bo;
 
-import br.edu.qi.dao.AcessorioDao;
 import br.edu.qi.dao.GenericDao;
-import br.edu.qi.model.Acessorio;
+import br.edu.qi.dao.MarcaDao;
+import br.edu.qi.model.Marca;
 import java.io.Serializable;
 
 /**
  *
  * @author Diorgines
  */
-public class AcessorioBo extends BaseBo<Acessorio>{
-
-    public AcessorioBo(GenericDao<Acessorio, Serializable> dao) throws Exception {
-        super(AcessorioDao.getInstance());
+public class MarcaBo extends BaseBo<Marca>{
+    
+    public MarcaBo(GenericDao<Marca, Serializable> dao) throws Exception {
+        super(MarcaDao.getInstance());
     }
-    
-
-    
     
 }

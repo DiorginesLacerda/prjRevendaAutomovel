@@ -17,11 +17,11 @@ public class CarroDao extends GenericDao<Carro, Serializable> {
     private static CarroDao instance;
     private static Carro carro;
     
-    private CarroDao(Carro entity) {
+    private CarroDao(Carro entity) throws Exception {
         super(entity);
     }
     
-    public static CarroDao getInstance(){
+    public static CarroDao getInstance() throws Exception{
         if(instance == null)
             instance = new CarroDao(carro);
         return instance;

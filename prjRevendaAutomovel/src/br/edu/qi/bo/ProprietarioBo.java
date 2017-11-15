@@ -17,7 +17,7 @@ import java.io.Serializable;
  */
 public class ProprietarioBo extends BaseBo<Proprietario>{
 
-    public ProprietarioBo(GenericDao<Proprietario, Serializable> dao) {
+    public ProprietarioBo(GenericDao<Proprietario, Serializable> dao) throws Exception {
         super(ProprietarioDao.getInstance());
     }
 }
