@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.edu.qi.model.Parcela" table="parcela" catalog="dbrevenda" optimistic-lock="version">
+        <id name="idParcela" type="java.lang.Integer">
+            <column name="id_parcela" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="venda" class="br.edu.qi.model.Venda" fetch="select">
+            <column name="nro_venda" />
+        </many-to-one>
+        <property name="dataParcela" type="date">
+            <column name="data_parcela" length="10" />
+        </property>
+        <property name="valorParcela" type="java.lang.Long">
+            <column name="valor_parcela" precision="10" scale="0" />
+        </property>
+        <property name="multa" type="java.lang.Long">
+            <column name="multa" precision="10" scale="0" />
+        </property>
+        <property name="dataPagamento" type="date">
+            <column name="data_pagamento" length="10" />
+        </property>
+        <property name="pago" type="java.lang.Boolean">
+            <column name="pago" />
+        </property>
+    </class>
+</hibernate-mapping>
