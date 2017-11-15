@@ -19,9 +19,9 @@ public interface IBo<T> {
 
     public List<T> findAll() throws Exception;
 
-    public List<T> findAllWithoutClose();
+    //public List<T> findAllWithoutClose();
     
-    public void closeSession();
+    //public void closeSession();
     
     public T findByCod(Integer id);
 }

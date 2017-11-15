@@ -14,8 +14,17 @@ import java.io.Serializable;
  */
 public class MarcaDao extends GenericDao<Marca, Serializable> {
     
-    public MarcaDao(Marca entity) {
+    private static MarcaDao instance;
+    private static Marca marca;
+    
+    private MarcaDao(Marca entity) {
         super(entity);
+    }
+    
+    public static MarcaDao getInstance(){
+        if(instance == null)
+            instance = new MarcaDao(marca);
+        return instance;
     }
     
 }

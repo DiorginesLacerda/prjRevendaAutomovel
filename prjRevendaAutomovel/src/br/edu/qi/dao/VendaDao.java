@@ -5,7 +5,7 @@
  */
 package br.edu.qi.dao;
 
-import br.edu.qi.dao.GenericDao;
+
 import br.edu.qi.model.Venda;
 import java.io.Serializable;
 
@@ -15,8 +15,18 @@ import java.io.Serializable;
  */
 public class VendaDao extends GenericDao<Venda, Serializable>{
     
-    public VendaDao(Venda entity) {
+    private static VendaDao instance;
+    private static Venda venda;
+    
+    private VendaDao(Venda entity) {
         super(entity);
+    }
+    
+    public static VendaDao getInstance(){
+        if(instance == null){
+            instance = new VendaDao(venda);
+        }
+        return instance;
     }
     
 }

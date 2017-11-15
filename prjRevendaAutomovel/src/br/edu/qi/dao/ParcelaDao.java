@@ -14,8 +14,17 @@ import java.io.Serializable;
  */
 public class ParcelaDao extends GenericDao<Parcela, Serializable>{
     
-    public ParcelaDao(Parcela entity) {
+    private static ParcelaDao instance;
+    private static Parcela parcela;
+    
+    private ParcelaDao(Parcela entity) {
         super(entity);
+    }
+    
+    public static ParcelaDao getInstance(){
+        if(instance == null)
+            instance = new ParcelaDao(parcela);
+        return instance;
     }
     
 }

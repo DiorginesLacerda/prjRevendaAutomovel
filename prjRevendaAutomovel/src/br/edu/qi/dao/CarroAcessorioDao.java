@@ -14,8 +14,16 @@ import java.io.Serializable;
  */
 public class CarroAcessorioDao extends GenericDao<CarroAcessorio, Serializable>{
     
-    public CarroAcessorioDao(CarroAcessorio entity) {
+    private static CarroAcessorioDao instance;
+    private static CarroAcessorio carroAcessorio;
+    
+    private CarroAcessorioDao(CarroAcessorio entity) {
         super(entity);
     }
     
+    public static CarroAcessorioDao getInstance(){
+        if(instance == null)
+            instance = new CarroAcessorioDao(carroAcessorio);
+        return instance;
+    }
 }

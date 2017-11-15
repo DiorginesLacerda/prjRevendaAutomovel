@@ -5,19 +5,23 @@
  */
 package br.edu.qi.bo;
 
+import br.edu.qi.dao.AcessorioDao;
 import br.edu.qi.dao.GenericDao;
-import br.edu.qi.dao.ProprietarioDao;
-import br.edu.qi.model.Proprietario;
+import br.edu.qi.model.Acessorio;
 import java.io.Serializable;
-
+import java.util.List;
 
 /**
  *
  * @author Diorgines
  */
-public class ProprietarioBo extends BaseBo<Proprietario>{
+public class AcessorioBo extends BaseBo<Acessorio>{
 
-    public ProprietarioBo(GenericDao<Proprietario, Serializable> dao) {
-        super(ProprietarioDao.getInstance());
+    public AcessorioBo(GenericDao<Acessorio, Serializable> dao) {
+        super(AcessorioDao.getInstance());
     }
+    
+
+    
+    
 }
