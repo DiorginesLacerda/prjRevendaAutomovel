@@ -1,13 +1,13 @@
 package br.edu.qi.model;
-// Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,39 +22,32 @@ import javax.persistence.Table;
 public class CarroAcessorio  implements java.io.Serializable {
 
 
-     private CarroAcessorioId id;
+     private Integer idCarroAcessorio;
      private Acessorio acessorio;
      private Carro carro;
 
     public CarroAcessorio() {
     }
 
-	
-    public CarroAcessorio(CarroAcessorioId id) {
-        this.id = id;
-    }
-    public CarroAcessorio(CarroAcessorioId id, Acessorio acessorio, Carro carro) {
-       this.id = id;
+    public CarroAcessorio(Acessorio acessorio, Carro carro) {
        this.acessorio = acessorio;
        this.carro = carro;
     }
    
-     @EmbeddedId
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="idAcessorio", column=@Column(name="id_acessorio") ), 
-        @AttributeOverride(name="idCarro", column=@Column(name="id_carro") ) } )
-    public CarroAcessorioId getId() {
-        return this.id;
+    @Column(name="id_carro_acessorio", unique=true, nullable=false)
+    public Integer getIdCarroAcessorio() {
+        return this.idCarroAcessorio;
     }
     
-    public void setId(CarroAcessorioId id) {
-        this.id = id;
+    public void setIdCarroAcessorio(Integer idCarroAcessorio) {
+        this.idCarroAcessorio = idCarroAcessorio;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id_acessorio", insertable=false, updatable=false)
+    @JoinColumn(name="id_acessorio")
     public Acessorio getAcessorio() {
         return this.acessorio;
     }
@@ -64,7 +57,7 @@ public class CarroAcessorio  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id_carro", insertable=false, updatable=false)
+    @JoinColumn(name="id_carro")
     public Carro getCarro() {
         return this.carro;
     }

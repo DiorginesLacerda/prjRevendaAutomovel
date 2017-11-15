@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

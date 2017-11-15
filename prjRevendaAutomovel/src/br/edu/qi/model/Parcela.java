@@ -1,9 +1,8 @@
 package br.edu.qi.model;
-// Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -116,51 +115,6 @@ public class Parcela  implements java.io.Serializable {
     
     public void setPago(Boolean pago) {
         this.pago = pago;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.venda);
-        hash = 71 * hash + Objects.hashCode(this.dataParcela);
-        hash = 71 * hash + Objects.hashCode(this.valorParcela);
-        hash = 71 * hash + Objects.hashCode(this.multa);
-        hash = 71 * hash + Objects.hashCode(this.dataPagamento);
-        hash = 71 * hash + Objects.hashCode(this.pago);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Parcela other = (Parcela) obj;
-        if (!Objects.equals(this.venda, other.venda)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataParcela, other.dataParcela)) {
-            return false;
-        }
-        if (!Objects.equals(this.valorParcela, other.valorParcela)) {
-            return false;
-        }
-        if (!Objects.equals(this.multa, other.multa)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataPagamento, other.dataPagamento)) {
-            return false;
-        }
-        if (!Objects.equals(this.pago, other.pago)) {
-            return false;
-        }
-        return true;
     }
 
 

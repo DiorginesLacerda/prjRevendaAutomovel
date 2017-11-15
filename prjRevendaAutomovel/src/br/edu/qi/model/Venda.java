@@ -1,10 +1,9 @@
 package br.edu.qi.model;
-// Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -154,63 +153,6 @@ public class Venda  implements java.io.Serializable {
     
     public void setParcelas(Set<Parcela> parcelas) {
         this.parcelas = parcelas;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.carro);
-        hash = 19 * hash + Objects.hashCode(this.proprietario);
-        hash = 19 * hash + Objects.hashCode(this.dataVenda);
-        hash = 19 * hash + Objects.hashCode(this.dataPagamento);
-        hash = 19 * hash + Objects.hashCode(this.formaPagamento);
-        hash = 19 * hash + Objects.hashCode(this.nroParcelas);
-        hash = 19 * hash + Objects.hashCode(this.valor);
-        hash = 19 * hash + Objects.hashCode(this.liquidado);
-        hash = 19 * hash + Objects.hashCode(this.parcelas);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Venda other = (Venda) obj;
-        if (!Objects.equals(this.carro, other.carro)) {
-            return false;
-        }
-        if (!Objects.equals(this.proprietario, other.proprietario)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataVenda, other.dataVenda)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataPagamento, other.dataPagamento)) {
-            return false;
-        }
-        if (!Objects.equals(this.formaPagamento, other.formaPagamento)) {
-            return false;
-        }
-        if (!Objects.equals(this.nroParcelas, other.nroParcelas)) {
-            return false;
-        }
-        if (!Objects.equals(this.valor, other.valor)) {
-            return false;
-        }
-        if (!Objects.equals(this.liquidado, other.liquidado)) {
-            return false;
-        }
-        if (!Objects.equals(this.parcelas, other.parcelas)) {
-            return false;
-        }
-        return true;
     }
 
 

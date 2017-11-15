@@ -1,21 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 15, 2017 12:39:39 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="br.edu.qi.model.CarroAcessorio" table="carro_acessorio" catalog="dbrevenda" optimistic-lock="version">
-        <composite-id name="id" class="br.edu.qi.model.CarroAcessorioId">
-            <key-property name="idAcessorio" type="java.lang.Integer">
-                <column name="id_acessorio" />
-            </key-property>
-            <key-property name="idCarro" type="java.lang.Integer">
-                <column name="id_carro" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="acessorio" class="br.edu.qi.model.Acessorio" update="false" insert="false" fetch="select">
+        <id name="idCarroAcessorio" type="java.lang.Integer">
+            <column name="id_carro_acessorio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="acessorio" class="br.edu.qi.model.Acessorio" fetch="select">
             <column name="id_acessorio" />
         </many-to-one>
-        <many-to-one name="carro" class="br.edu.qi.model.Carro" update="false" insert="false" fetch="select">
+        <many-to-one name="carro" class="br.edu.qi.model.Carro" fetch="select">
             <column name="id_carro" />
         </many-to-one>
     </class>

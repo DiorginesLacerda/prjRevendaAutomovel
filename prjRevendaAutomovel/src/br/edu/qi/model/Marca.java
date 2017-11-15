@@ -1,9 +1,8 @@
 package br.edu.qi.model;
-// Generated Nov 15, 2017 9:43:23 AM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2017 12:39:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,35 +64,6 @@ public class Marca  implements java.io.Serializable {
     
     public void setModelos(Set<Modelo> modelos) {
         this.modelos = modelos;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 47 * hash + Objects.hashCode(this.nomeMarca);
-        hash = 47 * hash + Objects.hashCode(this.modelos);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Marca other = (Marca) obj;
-        if (!Objects.equals(this.nomeMarca, other.nomeMarca)) {
-            return false;
-        }
-        if (!Objects.equals(this.modelos, other.modelos)) {
-            return false;
-        }
-        return true;
     }
 
 
