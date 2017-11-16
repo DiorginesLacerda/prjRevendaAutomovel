@@ -74,7 +74,7 @@ public class CarroBo extends BaseBo<Carro>{
                 }
                 //adiciona os novos na lista de vinculos  
                 for(CarroAcessorio ca:t.getCarroAcessorios()){
-                    if(!cABo.dao.getList().contains(t)){
+                    if(!cABo.dao.getList().contains(ca)){
                         cABo.save(ca);
                     }
                 }
