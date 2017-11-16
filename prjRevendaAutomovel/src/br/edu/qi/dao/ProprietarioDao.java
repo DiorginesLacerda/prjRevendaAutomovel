@@ -28,4 +28,6 @@ public class ProprietarioDao extends GenericDao<Proprietario, Serializable>{
     
     
     
+    
+    
 }

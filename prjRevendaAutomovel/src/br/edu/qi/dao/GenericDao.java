@@ -42,8 +42,6 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
             s.save(e);
             t.commit();
             s.close();
-            //atualiza o arrayLocal
-            list.add(find(e));
         }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -51,11 +49,15 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
     }
 
     public void update(T e) throws Exception {
-        s = HibernateUtil.getSessionFactory().openSession();
-        t = s.beginTransaction();
-        s.update(e);
-        t.commit();
-        s.close();
+        try {
+            s = HibernateUtil.getSessionFactory().openSession();
+            t = s.beginTransaction();
+            s.update(e);
+            t.commit();
+            s.close();
+        } catch (Exception ex) {
+        }
+        
     }
 
     public void delete(T e) throws Exception {
@@ -102,5 +104,11 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
         }
         return null;
     }
+
+    public List<T> getList() {
+        return list;
+    }
+    
+    
 
 }

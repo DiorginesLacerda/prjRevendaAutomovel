@@ -26,5 +26,4 @@ public class CarroDao extends GenericDao<Carro, Serializable> {
             instance = new CarroDao(carro);
         return instance;
     }
-    
 }

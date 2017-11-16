@@ -21,7 +21,11 @@ public abstract class BaseBo <T> implements IBo<T>{
         this.dao=dao;
     }
 
-    
+    @Override
+    public  void update(T t) throws Exception{
+        dao.update(t);
+    }
+
     @Override
     public void save(T t) throws Exception {
         dao.save(t);

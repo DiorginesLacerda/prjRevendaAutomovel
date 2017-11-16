@@ -16,6 +16,8 @@ public interface IBo<T> {
     public void save(T t) throws Exception;
 
     public void delete(T t) throws Exception;
+    
+    public void update(T t) throws Exception;
 
     public List<T> findAll() throws Exception;
 
