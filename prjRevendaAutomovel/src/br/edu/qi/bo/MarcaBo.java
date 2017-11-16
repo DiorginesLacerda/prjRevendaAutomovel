@@ -34,6 +34,22 @@ public class MarcaBo extends BaseBo<Marca>{
         else
             throw new Exception("Marca não encontrada na base de dados");
     }
+
+    @Override
+    public void update(Marca t) throws Exception {
+        if(super.findByCod(t.getIdMarca())!=null){
+            if(super.findByCod(t.getIdMarca()).getModelos().isEmpty()){
+                super.update(t);
+            }
+            else
+                throw new Exception("Impossível atualizar a marca pois existem modelos associados a ela");
+        }
+        else
+            throw new Exception("Impossível atualizar! Marca não encontrada na base de dados");
+         //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     public void addModelo(Modelo modelo,Marca marca) throws Exception{
         boolean sucess = false;
