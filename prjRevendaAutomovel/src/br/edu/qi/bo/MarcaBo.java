@@ -34,37 +34,54 @@ public class MarcaBo extends BaseBo<Marca>{
         else
             throw new Exception("Marca não encontrada na base de dados");
     }
-
-    @Override
-    public void save(Marca t) throws Exception {
-        super.save(t); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public void addModelo(Modelo modelo,Marca marca) throws Exception{
+        boolean sucess = false;
+        boolean findMarca = false;
         for(Marca ma :dao.getList()){
             if(ma.getIdMarca().equals(marca.getIdMarca())){
                 if(ma.getModelos().isEmpty() ||
                         !ma.getModelos().contains(modelo))
-                    ma.getModelos().add(modelo);
-                else
-                    throw new Exception("Este modelo já está cadastrano nesta marca");
-                    
+                    ma.getModelos().add(modelo);       
+            }              
+        }
+        if(!sucess){
+            if(findMarca){
+                throw new Exception("Este modelo já está cadastrano nesta marca");
             }
-            else
-                throw new Exception("Impossível Salvar Modelo, Marca não Encontrada");
+            throw new Exception("Impossível Salvar Modelo, Marca não Encontrada");
         }
     }
     
     public void removeModelo(Modelo modelo, Marca marca) throws Exception{
+        boolean sucess=false;
+        boolean findMarca = false;
         for(Marca ma : dao.getList()){
             if(ma.getIdMarca().equals(marca.getIdMarca())){
-                if(ma.getModelos().contains(modelo))
+                if(ma.getModelos().contains(modelo)){
                     ma.getModelos().remove(modelo);
-                else
-                    throw new Exception("Modelo não encontrado para esta marca");
+                    sucess = true;
+                }
+                findMarca=true;
+            }        
+        }
+        if(!sucess){
+            if(findMarca)
+                throw new Exception("Modelo não encontrado para esta marca");
+            throw new Exception("Impossível remover o modelo, Marca não Encontrada");
+        }
+    }
+    
+    public void updateModelo(Modelo modelo,Marca marca){
+        for(Marca ma:dao.getList()){
+            if(ma.getIdMarca().equals(marca.getIdMarca())){
+                for(Modelo mo:ma.getModelos()){
+                    if(mo.getIdModelo().equals(modelo.getIdModelo())){
+                        ma.getModelos().remove(mo);
+                        ma.getModelos().add(modelo);
+                    }  
+                }
             }
-            else
-                throw new Exception("Impossível remover o modelo, Marca não Encontrada");
         }
     }
     
