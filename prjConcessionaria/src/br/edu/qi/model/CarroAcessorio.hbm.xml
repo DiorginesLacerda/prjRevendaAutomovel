@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 19, 2017 7:44:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.edu.qi.model.CarroAcessorio" table="carro_acessorio" catalog="dbrevenda" optimistic-lock="version">
+        <id name="idCarroAcessorio" type="java.lang.Integer">
+            <column name="id_carro_acessorio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="acessorio" class="br.edu.qi.model.Acessorio" fetch="select">
+            <column name="id_acessorio" />
+        </many-to-one>
+        <many-to-one name="carro" class="br.edu.qi.model.Carro" fetch="select">
+            <column name="id_carro" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
