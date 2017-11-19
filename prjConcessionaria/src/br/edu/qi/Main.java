@@ -5,40 +5,44 @@
  */
 package br.edu.qi;
 
+import br.edu.qi.util.ViewUtil;
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+//import javafx.event.ActionEvent;
+//import javafx.event.EventHandler;
+//import javafx.fxml.FXMLLoader;
+//import javafx.scene.Parent;
+//import javafx.scene.Scene;
+//import javafx.scene.control.Button;
+//import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+//import javax.swing.JOptionPane;
 
 /**
  *
  * @author Diorgines
  */
 public class Main extends Application {
+    public static Stage stage = null;
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+    public void start(Stage Primarystage) throws IOException {
+        
+        ViewUtil.ExibirTela("Home");
+        /*try {
+            if (stage != null) {
+                stage.close();
+            } else {
+                stage = new Stage();
             }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            String caminho = ("controller/Home.fxml");
+            Parent root = FXMLLoader.load(Main.class.getResource(caminho));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Houve algum erro no sistema", JOptionPane.ERROR_MESSAGE);
+        }*/
     }
 
     /**
