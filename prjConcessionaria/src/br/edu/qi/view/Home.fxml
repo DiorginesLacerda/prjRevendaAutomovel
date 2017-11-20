@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.edu.qi.controller.HomeController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.qi.controller.HomeController">
    <children>
-      <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" text="Button" />
+      <SplitPane dividerPositions="0.30166435506241335" layoutX="99.0" layoutY="90.0" prefHeight="374.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="353.0" prefWidth="195.0">
+               <children>
+                  <Accordion prefHeight="353.0" prefWidth="208.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+                     <panes>
+                        <TitledPane animated="false" text="Carro">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="btnCar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnCar" text="Carro">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnBrand" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnBrand" text="Marca" />
+                                          <Button fx:id="btnModelCar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnModelCar" text="Modelo" />
+                                          <Button fx:id="btnAccessories" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnAccessories" text="Acessórios" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Cliente">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="252.0" prefWidth="173.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="btnCadClient" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnCadClient" text="Cadastro" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Venda">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="252.0" prefWidth="173.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="btnRegSale" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnRegSale" text="Registro de Venda" />
+                                          <Button fx:id="btnRegPayment" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnRegPayment" text="Registro de Pagamento" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Informações">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="252.0" prefWidth="173.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="btnClassDiagram" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnClassDiagram" text="Diagrama de Classes" />
+                                          <Button fx:id="btnScriptDatabase" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlerBtnDatabase" text="Script de Banco" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </panes>
+                  </Accordion>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="353.0" prefWidth="394.0">
+               <children>
+                  <ImageView fx:id="imgCar" fitHeight="150.0" fitWidth="200.0" layoutX="108.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
+         </items>
+      </SplitPane>
    </children>
 </AnchorPane>
