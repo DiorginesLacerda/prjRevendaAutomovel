@@ -89,6 +89,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnCadClient(ActionEvent event) {
+        setDataPane("view/ClientEditView.fxml");
     }
 
     @FXML
