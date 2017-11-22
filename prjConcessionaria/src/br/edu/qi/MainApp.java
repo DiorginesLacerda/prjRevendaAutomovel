@@ -55,13 +55,22 @@ public class MainApp extends Application {
         }
     }
     
-    public static Node showView(String source){
+    public static Node getNode(String source){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource(source));
             AnchorPane acessoryEditView = (AnchorPane) loader.load();
             return acessoryEditView;
             
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
+    public static Pane getPane(String source){
+        try {
+            Pane pane = FXMLLoader.load(MainApp.class.getResource(source));
+            return pane;
         } catch (Exception e) {
         }
         return null;

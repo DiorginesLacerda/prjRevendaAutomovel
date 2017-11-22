@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="dataPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.qi.controller.ConsultCarViewController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="txFind" prefWidth="200.0" />
+                  <Button mnemonicParsing="false" onAction="#handlerbtnFind" text="Buscar" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <ScrollPane maxWidth="600.0" prefHeight="300.0">
+               <content>
+                  <TableView fx:id="tbCars" maxWidth="1.7976931348623157E308" prefWidth="580.0">
+                    <columns>
+                      <TableColumn fx:id="tbColYear" prefWidth="75.0" text="Ano" />
+                      <TableColumn fx:id="tbColBrand" prefWidth="75.0" text="Marca" />
+                        <TableColumn fx:id="tbColModelCar" prefWidth="75.0" text="Modelo" />
+                        <TableColumn fx:id="tbColColor" prefWidth="75.0" text="Cor" />
+                        <TableColumn fx:id="tbColType" prefWidth="75.0" text="Tipo" />
+                        <TableColumn fx:id="tbColState" prefWidth="75.0" text="Estado" />
+                        <TableColumn fx:id="tbColKm" prefWidth="75.0" text="Km" />
+                        <TableColumn fx:id="tbColValueCar" prefWidth="75.0" text="Valor" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onAction="#handlerBtnBackPage" text="Voltar" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

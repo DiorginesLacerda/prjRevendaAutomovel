@@ -5,17 +5,25 @@
  */
 package br.edu.qi.controller;
 
+import br.edu.qi.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -58,6 +66,10 @@ public class CarEditViewController implements Initializable {
     private RadioButton rbUsado;
     @FXML
     private TextField txKm;
+    @FXML
+    private AnchorPane dataPane;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -77,6 +89,16 @@ public class CarEditViewController implements Initializable {
 
     @FXML
     private void handlerBtnConsultCar(ActionEvent event) {
+        showConsultCar();
+    }
+    
+    private void showConsultCar(){
+        Stage stage = new Stage();
+        Pane pane= MainApp.getPane("view/ConsultCarView.fxml");
+        stage.setScene(new Scene(pane));
+        stage.setTitle("Consulta Veículos");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.showAndWait();
     }
     
 }

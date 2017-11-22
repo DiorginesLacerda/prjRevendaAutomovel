@@ -48,9 +48,9 @@ public class HomeController implements Initializable {
     @FXML
     private AnchorPane dataPane;
     
-    private void setDataPane(String source){
+    public void setDataPane(String source){
         dataPane.getChildren().clear();
-        dataPane.getChildren().add(MainApp.showView(source));
+        dataPane.getChildren().add(MainApp.getNode(source));
     }
 
     /**
