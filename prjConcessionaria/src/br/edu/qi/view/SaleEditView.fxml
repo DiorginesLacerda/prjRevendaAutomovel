@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.qi.controller.SaleEditViewController">
+   <children>
+      <VBox prefHeight="350.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="TOP_CENTER" prefWidth="200.0">
+               <children>
+                  <Label text="Registro de Nova Venda" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlerBtnSelectClient" text="Selecione um Cliente" />
+                  <TextField fx:id="txClient" onMouseClicked="#handlerBtnSelectClient" prefHeight="25.0" prefWidth="251.0" />
+               </children>
+            </HBox>
+            <HBox prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlerBtnSelectClient" text="Selecione um Veículo" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <TextArea fx:id="txCarDetails" prefHeight="200.0" prefWidth="200.0" />
+                  <TitledPane animated="false" text="Acessórios">
+                    <content>
+                      <AnchorPane fx:id="apAccessories" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </TitledPane>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label text="Valor Total:" />
+                  <TextField fx:id="txTotValue" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlerConcluseSale" prefWidth="120.0" text="Concluir a Venda" />
+                  <Button mnemonicParsing="false" onAction="#handlerCancelSale" prefWidth="120.0" text="Cancelar" />
+                  <Button mnemonicParsing="false" onAction="#handlerConsultSales" prefWidth="120.0" text="Consultar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

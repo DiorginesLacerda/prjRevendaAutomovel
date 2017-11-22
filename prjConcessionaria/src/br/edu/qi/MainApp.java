@@ -61,7 +61,6 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource(source));
             AnchorPane acessoryEditView = (AnchorPane) loader.load();
             return acessoryEditView;
-            
         } catch (Exception e) {
         }
         return null;

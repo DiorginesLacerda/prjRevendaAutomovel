@@ -6,14 +6,11 @@
 package br.edu.qi.controller;
 
 import br.edu.qi.MainApp;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -68,22 +65,16 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnBrand(ActionEvent event) {
-        //dataPane.getChildren().clear();
-       // dataPane.getChildren().add(MainApp.showView("view/BrandEditView.fxml"));
         setDataPane("view/BrandEditView.fxml");
     }
 
     @FXML
     private void handlerBtnModelCar(ActionEvent event) {
-        //dataPane.getChildren().clear();
-        //dataPane.getChildren().add(MainApp.showView("view/ModelCarView.fxml"));
         setDataPane("view/ModelCarView.fxml");
     }
 
     @FXML
     private void handlerBtnAccessories(ActionEvent event) {
-       // dataPane.getChildren().clear();
-        //dataPane.getChildren().add(MainApp.showView("view/AccessoryEditView.fxml"));
         setDataPane("view/AccessoryEditView.fxml");
     }
 
@@ -94,6 +85,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnRegSale(ActionEvent event) {
+        setDataPane("view/SaleEditView.fxml");
     }
 
     @FXML
