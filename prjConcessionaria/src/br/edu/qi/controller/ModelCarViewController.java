@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -19,14 +20,18 @@ import javafx.scene.control.TextField;
  *
  * @author Diorgines
  */
-public class BrandEditViewController implements Initializable {
+public class ModelCarViewController implements Initializable {
 
     @FXML
-    private TextField txBrand;
+    private TextField txModel;
     @FXML
-    private TableView<?> tbVBrands;
+    private ComboBox<?> cbbxBrand;
     @FXML
-    private TableColumn<?, ?> tbColBrands;
+    private TableView<?> tbModelBrand;
+    @FXML
+    private TableColumn<?, ?> tbcolModel;
+    @FXML
+    private TableColumn<?, ?> tbcolBrand;
 
     /**
      * Initializes the controller class.
@@ -37,11 +42,11 @@ public class BrandEditViewController implements Initializable {
     }    
 
     @FXML
-    private void handlerSaveBrand(ActionEvent event) {
+    private void handlerSaveModel(ActionEvent event) {
     }
 
     @FXML
-    private void handlerDeleteBrand(ActionEvent event) {
+    private void handlerDeleteModel(ActionEvent event) {
     }
     
 }

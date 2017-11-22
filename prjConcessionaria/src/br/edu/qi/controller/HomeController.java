@@ -68,10 +68,14 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnBrand(ActionEvent event) {
+        dataPane.getChildren().clear();
+        dataPane.getChildren().add(MainApp.showView("view/BrandEditView.fxml"));
     }
 
     @FXML
     private void handlerBtnModelCar(ActionEvent event) {
+        dataPane.getChildren().clear();
+        dataPane.getChildren().add(MainApp.showView("view/ModelCarView.fxml"));
     }
 
     @FXML
