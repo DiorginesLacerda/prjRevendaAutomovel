@@ -5,10 +5,12 @@
  */
 package br.edu.qi;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +32,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Revenda");
         
         initRootLayout();
+        
     }
 
     /**
@@ -52,14 +55,17 @@ public class MainApp extends Application {
         }
     }
     
-    public void showAccessoryEditView(){
+    public static Node showView(String source){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("vew/AccessoryEditView.fxml"));
+            loader.setLocation(MainApp.class.getResource(source));
             AnchorPane acessoryEditView = (AnchorPane) loader.load();
-            
+            return acessoryEditView;
             
         } catch (Exception e) {
         }
+        return null;
     }
+    
+    
 }

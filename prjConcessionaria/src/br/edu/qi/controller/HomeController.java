@@ -5,13 +5,18 @@
  */
 package br.edu.qi.controller;
 
+import br.edu.qi.MainApp;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -40,6 +45,14 @@ public class HomeController implements Initializable {
     private Button btnScriptDatabase;
     @FXML
     private ImageView imgCar;
+    @FXML
+    private AnchorPane dataPane;
+    
+    private AnchorPane setDataPane(String source) throws IOException{
+        AnchorPane pane= FXMLLoader.load(getClass().getResource(source));
+        //dataPane.getChildren().setAll(node);
+        return pane;
+    }
 
     /**
      * Initializes the controller class.
@@ -62,7 +75,9 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void handlerBtnAccessories(ActionEvent event) {
+    private void handlerBtnAccessories(ActionEvent event) throws IOException {
+        dataPane.getChildren().clear();
+        dataPane.getChildren().add(MainApp.showView("view/AccessoryEditView.fxml"));
     }
 
     @FXML
