@@ -48,10 +48,9 @@ public class HomeController implements Initializable {
     @FXML
     private AnchorPane dataPane;
     
-    private AnchorPane setDataPane(String source) throws IOException{
-        AnchorPane pane= FXMLLoader.load(getClass().getResource(source));
-        //dataPane.getChildren().setAll(node);
-        return pane;
+    private void setDataPane(String source){
+        dataPane.getChildren().clear();
+        dataPane.getChildren().add(MainApp.showView(source));
     }
 
     /**
@@ -64,24 +63,28 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnCar(ActionEvent event) {
+        setDataPane("view/CarEditView.fxml");
     }
 
     @FXML
     private void handlerBtnBrand(ActionEvent event) {
-        dataPane.getChildren().clear();
-        dataPane.getChildren().add(MainApp.showView("view/BrandEditView.fxml"));
+        //dataPane.getChildren().clear();
+       // dataPane.getChildren().add(MainApp.showView("view/BrandEditView.fxml"));
+        setDataPane("view/BrandEditView.fxml");
     }
 
     @FXML
     private void handlerBtnModelCar(ActionEvent event) {
-        dataPane.getChildren().clear();
-        dataPane.getChildren().add(MainApp.showView("view/ModelCarView.fxml"));
+        //dataPane.getChildren().clear();
+        //dataPane.getChildren().add(MainApp.showView("view/ModelCarView.fxml"));
+        setDataPane("view/ModelCarView.fxml");
     }
 
     @FXML
-    private void handlerBtnAccessories(ActionEvent event) throws IOException {
-        dataPane.getChildren().clear();
-        dataPane.getChildren().add(MainApp.showView("view/AccessoryEditView.fxml"));
+    private void handlerBtnAccessories(ActionEvent event) {
+       // dataPane.getChildren().clear();
+        //dataPane.getChildren().add(MainApp.showView("view/AccessoryEditView.fxml"));
+        setDataPane("view/AccessoryEditView.fxml");
     }
 
     @FXML

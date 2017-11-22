@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.qi.controller.CarEditViewController">
+   <children>
+      <ScrollPane prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <VBox prefWidth="400.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="2.0" prefHeight="90.0" prefWidth="403.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="74.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="34.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="110.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="Marca" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="Modelo" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Ano" textAlignment="RIGHT" GridPane.columnIndex="2" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="Valor" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="Cor" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbbxBrand" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="cbbxModelCar" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txYear" GridPane.columnIndex="3" />
+                              <TextField fx:id="txValueCar" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cbbxColorCar" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                           </children>
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="TOP_CENTER" spacing="5.0">
+                           <children>
+                              <Label text="Descrição:" />
+                              <TextArea fx:id="txDescription" prefHeight="50.0" prefWidth="300.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <TitledPane animated="false" text="Acessórios">
+                                <content>
+                                  <AnchorPane fx:id="apAccessories" minHeight="0.0" minWidth="0.0" />
+                                </content>
+                              </TitledPane>
+                              <TitledPane text="TIpo">
+                                 <content>
+                                    <VBox spacing="3.0">
+                                       <children>
+                                          <RadioButton fx:id="rbUtilitario" mnemonicParsing="false" text="Utilitário">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="rgType" />
+                                             </toggleGroup></RadioButton>
+                                          <RadioButton fx:id="rbPasseio" mnemonicParsing="false" text="Passeio" toggleGroup="$rgType" />
+                                          <RadioButton fx:id="rbOffRoad" mnemonicParsing="false" text="Off Road" toggleGroup="$rgType" />
+                                          <RadioButton fx:id="rbEsportivo" mnemonicParsing="false" text="Esportivo" toggleGroup="$rgType" />
+                                          <RadioButton fx:id="rbComercial" mnemonicParsing="false" text="Comercial" toggleGroup="$rgType" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </TitledPane>
+                              <VBox>
+                                 <children>
+                                    <TitledPane text="Estado">
+                                       <content>
+                                          <VBox spacing="3.0">
+                                             <children>
+                                                <RadioButton fx:id="rbNovo" mnemonicParsing="false" text="Novo">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="rgState" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="rbUsado" mnemonicParsing="false" text="Usado" toggleGroup="$rgState" />
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </TitledPane>
+                                    <HBox alignment="CENTER" spacing="3.0">
+                                       <children>
+                                          <Label text="KM: " />
+                                          <TextField fx:id="txKm" prefWidth="60.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlerBtnSaveCar" text="Salvar" />
+                              <Button mnemonicParsing="false" onAction="#handlerBtnDeleteCar" text="Remover" />
+                              <Button mnemonicParsing="false" onAction="#handlerBtnConsultCar" text="Consultar" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
