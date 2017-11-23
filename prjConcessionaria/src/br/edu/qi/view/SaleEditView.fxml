@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -40,9 +41,26 @@
                <children>
                   <Label text="Valor Total:" />
                   <TextField fx:id="txTotValue" />
+                  <RadioButton fx:id="rbCash" mnemonicParsing="false" text="A Vista">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="rgTypePayment" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbInstallment" mnemonicParsing="false" text="Parcelado" toggleGroup="$rgTypePayment" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label text="Parcelas:" />
+                  <TextField prefHeight="25.0" prefWidth="51.0" />
+                  <Label text="X" />
+                  <Label text="Valor" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#handlerConcluseSale" prefWidth="120.0" text="Concluir a Venda" />
                   <Button mnemonicParsing="false" onAction="#handlerCancelSale" prefWidth="120.0" text="Cancelar" />

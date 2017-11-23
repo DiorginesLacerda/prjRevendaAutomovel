@@ -90,6 +90,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handlerBtnRegPayment(ActionEvent event) {
+        setDataPane("view/PaymentEditView.fxml");
     }
 
     @FXML

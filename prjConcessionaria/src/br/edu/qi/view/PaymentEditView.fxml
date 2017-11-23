@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.qi.controller.PaymentEditViewController">
+   <children>
+      <VBox prefHeight="350.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Cliente:" />
+                  <TextField fx:id="txFindCient" />
+                  <Button fx:id="btnFIndClient" mnemonicParsing="false" onAction="#handlerBtnFindClient" text="Pesquisar" />
+               </children>
+            </HBox>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TableView fx:id="tbPayments" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tbcolClient" prefWidth="75.0" text="Cliente" />
+                            <TableColumn fx:id="tbcolNInstallment" prefWidth="75.0" text="Nrº" />
+                              <TableColumn fx:id="tbcolExpiration" prefWidth="75.0" text="Venc" />
+                              <TableColumn fx:id="tcolValue" prefWidth="75.0" text="Valor" />
+                              <TableColumn fx:id="tbColStatus" prefWidth="75.0" text="Status" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <GridPane>
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Status:" />
+                  <Label text="Parcela Nrº:" GridPane.rowIndex="1" />
+                  <Label text="Vencimento::" GridPane.rowIndex="2" />
+                  <Label text="Pagamento:" GridPane.columnIndex="2" />
+                  <Label text="Valor:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label text="Multa:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="Valor Total:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="btnPay" mnemonicParsing="false" onAction="#handlerBtnPay" prefWidth="70.0" text="Pagar" GridPane.columnIndex="4" />
+                  <Button fx:id="btnReverse" mnemonicParsing="false" onAction="#handlerBtnReverse" prefWidth="70.0" text="Estornar" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Label text="Venda nrº:" GridPane.rowIndex="3" />
+                  <Label fx:id="lbStatus" GridPane.columnIndex="1" />
+                  <Label fx:id="lbInstallment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="lbExpiration" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="lbSaleNumber" onMouseClicked="#clickNumberSale" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="lbDatePayment" GridPane.columnIndex="3" />
+                  <Label fx:id="lbValueInstallment" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Label fx:id="lbPenalty" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label fx:id="lbValueTot" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
