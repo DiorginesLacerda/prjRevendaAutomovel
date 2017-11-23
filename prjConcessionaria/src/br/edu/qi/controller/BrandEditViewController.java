@@ -51,21 +51,29 @@ public class BrandEditViewController implements Initializable {
         return null;
     }
     
+    private void reloadScreen(){
+        txBrand.setText("");
+        data.clear();
+        data.addAll(getData());
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         data = FXCollections.observableArrayList();
-        //tbColBrands = new TableColumn<>();
         tbColBrands.setCellValueFactory(new PropertyValueFactory("nomeMarca"));
         data.addAll(getData());
         tbVBrands.setItems(data);
-        
-    }    
+    }
 
     @FXML
-    private void handlerSaveBrand(ActionEvent event) {
+    private void handlerSaveBrand(ActionEvent event) throws Exception {
+        Marca marca = new Marca();
+        marca.setNomeMarca(txBrand.getText());
+        bo.save(marca);
+        reloadScreen();
     }
 
     @FXML

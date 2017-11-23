@@ -25,7 +25,7 @@ public abstract class GenericBo <T> implements IBo<T>{
     
     @Override
     public void save(T t) throws Exception {
-        dao.update(t);
+        dao.save(t);
     }
 
     @Override

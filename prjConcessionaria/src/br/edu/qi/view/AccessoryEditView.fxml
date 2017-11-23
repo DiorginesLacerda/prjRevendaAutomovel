@@ -24,8 +24,8 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label text="Valor:" />
-                        <TextField fx:id="txtValue" />
+                        <Label text="Valor:" visible="false" />
+                        <TextField fx:id="txtValue" visible="false" />
                      </children>
                      <padding>
                         <Insets left="20.0" top="10.0" />
@@ -42,7 +42,6 @@
             <TableView fx:id="tbAccessory" prefHeight="320.0">
               <columns>
                 <TableColumn fx:id="tbcAccessoryName" prefWidth="75.0" text="Acessório" />
-                <TableColumn fx:id="tbcAccessoryValue" prefWidth="75.0" text="Valor" />
               </columns>
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
