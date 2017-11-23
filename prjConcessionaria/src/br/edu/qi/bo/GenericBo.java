@@ -15,11 +15,11 @@ import java.util.logging.Logger;
  *
  * @author Diorgines
  */
-public abstract class BaseBo <T> implements IBo<T>{
+public abstract class GenericBo <T> implements IBo<T>{
 
     protected GenericDao<T, Serializable> dao;
     
-    public BaseBo(GenericDao<T, Serializable> dao) {
+    public GenericBo(GenericDao<T, Serializable> dao) {
         this.dao=dao;
     }
     
@@ -48,7 +48,7 @@ public abstract class BaseBo <T> implements IBo<T>{
         try {
             return this.dao.findByCod(t);
         } catch (Exception ex) {
-            Logger.getLogger(BaseBo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GenericBo.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }   
     }
