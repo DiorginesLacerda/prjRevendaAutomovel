@@ -52,4 +52,23 @@ public abstract class GenericBo <T> implements IBo<T>{
             return null;
         }   
     }
+    
+    @Override
+    public List<T> findAllWithoutClose(){
+        try {
+            return this.dao.findAllWithoutClose();
+        } catch (Exception ex) {
+            Logger.getLogger(GenericBo.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    @Override
+    public void closeSession(){
+        try {
+            this.dao.closeSession();
+        } catch (Exception ex) {
+            Logger.getLogger(GenericBo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

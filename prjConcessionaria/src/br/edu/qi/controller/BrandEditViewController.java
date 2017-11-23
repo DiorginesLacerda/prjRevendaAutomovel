@@ -8,9 +8,9 @@ package br.edu.qi.controller;
 import br.edu.qi.bo.MarcaBo;
 import br.edu.qi.model.Marca;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -32,20 +33,35 @@ public class BrandEditViewController implements Initializable {
     @FXML
     private TextField txBrand;
     @FXML
-    private TableView<?> tbVBrands;
+    private TableView<Marca> tbVBrands;
     @FXML
-    private TableColumn<?, ?> tbColBrands;
+    private TableColumn tbColBrands;
 
+    public BrandEditViewController() throws Exception {
+        this.bo = new MarcaBo();
+        
+    }
+    
+    private List<Marca> getData(){
+        try {
+            List<Marca> list = bo.findAll();
+            return list;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            this.bo = new MarcaBo();
-        } catch (Exception ex) {
-            Logger.getLogger(BrandEditViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        data = FXCollections.observableArrayList();
+        //tbColBrands = new TableColumn<>();
+        tbColBrands.setCellValueFactory(new PropertyValueFactory("nomeMarca"));
+        data.addAll(getData());
+        tbVBrands.setItems(data);
+        
     }    
 
     @FXML

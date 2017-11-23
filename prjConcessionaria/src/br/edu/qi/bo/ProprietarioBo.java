@@ -9,7 +9,6 @@ package br.edu.qi.bo;
 import br.edu.qi.dao.ProprietarioDao;
 import br.edu.qi.model.Proprietario;
 
-
 /**
  *
  * @author Diorgines

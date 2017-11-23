@@ -25,9 +25,7 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
 
     public void save(T e) throws Exception {
         s = HibernateUtil.getSessionFactory().openSession();
-//        if (!s.isOpen() || s == null) {
-//            
-//        }
+//        if (!s.isOpen() || s == null) {}       
         t = s.beginTransaction();
         s.save(e);
         t.commit();
@@ -43,7 +41,6 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
         t = s.beginTransaction();
         s.update(e);
         t.commit();
-
         s.close();
 
     }
@@ -60,9 +57,9 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
     }
 
     public List<T> findAll() throws Exception {
-        if (!s.isOpen() || s == null) {
-            s = HibernateUtil.getSessionFactory().openSession();
-        }
+       // if (!s.isOpen() || s == null) { }
+        s = HibernateUtil.getSessionFactory().openSession();
+       
         List<T> lista = s.createCriteria(entity.getClass()).list();
         s.close();
         return lista;
