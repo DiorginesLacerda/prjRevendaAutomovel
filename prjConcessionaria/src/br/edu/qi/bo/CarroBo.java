@@ -6,9 +6,7 @@
 package br.edu.qi.bo;
 
 import br.edu.qi.dao.CarroDao;
-import br.edu.qi.dao.GenericDao;
 import br.edu.qi.model.Carro;
-import java.io.Serializable;
 
 /**
  *
@@ -16,7 +14,7 @@ import java.io.Serializable;
  */
 public class CarroBo extends GenericBo<Carro>{
     
-    public CarroBo(GenericDao<Carro, Serializable> dao) throws Exception {
+    public CarroBo() throws Exception {
         super(CarroDao.getInstance());
     }
 }

@@ -5,10 +5,8 @@
  */
 package br.edu.qi.bo;
 
-import br.edu.qi.dao.GenericDao;
 import br.edu.qi.dao.ModeloDao;
 import br.edu.qi.model.Modelo;
-import java.io.Serializable;
 
 /**
  *
@@ -16,7 +14,7 @@ import java.io.Serializable;
  */
 public class ModeloBo extends GenericBo<Modelo>{
     
-    public ModeloBo(GenericDao<Modelo, Serializable> dao) throws Exception {
+    public ModeloBo() throws Exception {
         super(ModeloDao.getInstance());
     }
     

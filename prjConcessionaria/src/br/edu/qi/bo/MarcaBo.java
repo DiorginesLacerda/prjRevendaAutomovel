@@ -5,10 +5,8 @@
  */
 package br.edu.qi.bo;
 
-import br.edu.qi.dao.GenericDao;
 import br.edu.qi.dao.MarcaDao;
 import br.edu.qi.model.Marca;
-import java.io.Serializable;
 
 /**
  *
@@ -16,7 +14,7 @@ import java.io.Serializable;
  */
 public class MarcaBo extends GenericBo<Marca>{
     
-    public MarcaBo(GenericDao<Marca, Serializable> dao) throws Exception {
+    public MarcaBo() throws Exception {
         super(MarcaDao.getInstance());
     }
     

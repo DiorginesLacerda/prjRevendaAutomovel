@@ -6,17 +6,14 @@
 package br.edu.qi.bo;
 
 import br.edu.qi.dao.AcessorioDao;
-import br.edu.qi.dao.GenericDao;
 import br.edu.qi.model.Acessorio;
-import java.io.Serializable;
-
 /**
  *
  * @author Diorgines
  */
 public class AcessorioBo extends GenericBo<Acessorio>{
     
-    public AcessorioBo(GenericDao<Acessorio, Serializable> dao) throws Exception {
+    public AcessorioBo() throws Exception {
         super(AcessorioDao.getInstance());
     }
     

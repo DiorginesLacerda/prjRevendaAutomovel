@@ -5,8 +5,13 @@
  */
 package br.edu.qi.controller;
 
+import br.edu.qi.bo.MarcaBo;
+import br.edu.qi.model.Marca;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +26,9 @@ import javafx.scene.control.TextField;
  */
 public class BrandEditViewController implements Initializable {
 
+    private ObservableList<Marca> data;
+    private MarcaBo bo;
+    
     @FXML
     private TextField txBrand;
     @FXML
@@ -33,7 +41,11 @@ public class BrandEditViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            this.bo = new MarcaBo();
+        } catch (Exception ex) {
+            Logger.getLogger(BrandEditViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
