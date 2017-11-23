@@ -44,8 +44,7 @@ public class AccessoryEditViewController implements Initializable {
     private TableView<Acessorio> tbAccessory;
     @FXML
     private TableColumn tbcAccessoryName;
-  //  @FXML
-  //  private TableColumn tbcAccessoryValue;
+ 
 
     public AccessoryEditViewController() throws Exception {
         this.bo = new AcessorioBo();
@@ -60,7 +59,7 @@ public class AccessoryEditViewController implements Initializable {
         return null;
     }
     
-    private void reloadScreen(){
+    private void loadScreen(){
         this.txtAccessory.setText("");
         data.clear();
         data.addAll(getData());
@@ -73,7 +72,7 @@ public class AccessoryEditViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         data = FXCollections.observableArrayList();
         tbcAccessoryName.setCellValueFactory(new PropertyValueFactory("nomeAcessorio"));
-        data.addAll(getData());
+        loadScreen();
         tbAccessory.setItems(data);
     }    
 
@@ -82,7 +81,7 @@ public class AccessoryEditViewController implements Initializable {
         Acessorio acessorio = new Acessorio();
         acessorio.setNomeAcessorio(txtAccessory.getText());
         bo.save(acessorio);
-        reloadScreen();
+        loadScreen();
     }
 
     @FXML

@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class ParcelaDao extends GenericDao<Parcela, Serializable> {
     
     private static ParcelaDao instance;
-    private static Parcela parcela;
     
     private ParcelaDao(Parcela entity) throws Exception {
         super(entity);
@@ -23,7 +22,7 @@ public class ParcelaDao extends GenericDao<Parcela, Serializable> {
     
     public static ParcelaDao getInstance() throws Exception{
         if(instance == null)
-            instance = new ParcelaDao(parcela);
+            instance = new ParcelaDao(new Parcela());
         return instance;
     }
     

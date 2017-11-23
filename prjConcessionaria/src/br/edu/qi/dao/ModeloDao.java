@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class ModeloDao extends GenericDao<Modelo, Serializable> {
     
     private static ModeloDao instance;
-    private static Modelo modelo;
     
     private ModeloDao(Modelo entity) throws Exception {
         super(entity);
@@ -23,7 +22,7 @@ public class ModeloDao extends GenericDao<Modelo, Serializable> {
     
     public static ModeloDao getInstance() throws Exception{
         if( instance == null)
-            instance = new ModeloDao(modelo);
+            instance = new ModeloDao(new Modelo());
         return instance;
     }
     

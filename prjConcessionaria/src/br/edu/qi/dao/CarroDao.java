@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class CarroDao extends GenericDao<Carro, Serializable>{
     
     private static CarroDao instance;
-    private static Carro carro;
     
     private CarroDao(Carro entity) throws Exception {
         super(entity);
@@ -23,7 +22,7 @@ public class CarroDao extends GenericDao<Carro, Serializable>{
     
     public static CarroDao getInstance() throws Exception{
         if(instance == null)
-            instance = new CarroDao(carro);
+            instance = new CarroDao(new Carro());
         return instance;
     }
 }
