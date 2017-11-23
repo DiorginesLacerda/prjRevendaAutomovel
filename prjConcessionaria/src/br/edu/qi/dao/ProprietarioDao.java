@@ -14,8 +14,15 @@ import java.io.Serializable;
  */
 public class ProprietarioDao extends GenericDao<Proprietario, Serializable> {
     
-    public ProprietarioDao(Proprietario entity) {
+    private static ProprietarioDao instance;
+    private static Proprietario proprietario;
+    private ProprietarioDao(Proprietario entity) throws Exception {
         super(entity);
     }
     
+    public static ProprietarioDao getInstance() throws Exception{
+        if(instance == null)
+            instance = new ProprietarioDao(proprietario);
+        return instance;
+    }
 }

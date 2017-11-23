@@ -14,8 +14,17 @@ import java.io.Serializable;
  */
 public class VendaDao extends GenericDao<Venda, Serializable> {
     
-    public VendaDao(Venda entity) {
+    private static VendaDao instance;
+    private static Venda venda;
+    
+    private VendaDao(Venda entity) throws Exception {
         super(entity);
     }
     
+    public static VendaDao getInstance() throws Exception{
+        if(instance == null){
+            instance = new VendaDao(venda);
+        }
+        return instance;
+    }
 }
