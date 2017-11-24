@@ -14,6 +14,7 @@ import br.edu.qi.model.Carro;
 import br.edu.qi.model.CarroAcessorio;
 import br.edu.qi.model.Modelo;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -138,17 +139,30 @@ public class CarEditViewController implements Initializable {
     private void loadAccessories(){
         try {
             List<Acessorio> accessories = acessorioBo.findAll();
-            Set<Acessorio> setAcessorio = new HashSet<>();
+            List<Acessorio> acssCar = new ArrayList<>();
+          //  Set<CarroAcessorio> setCarroAcessorio = new HashSet<>();
             
+            //create the checkBoxes of Accessories
             accessories.forEach((accessory)->{
                 vbxAccessories.getChildren().add(new CheckBox(accessory.getNomeAcessorio()));
-            });
-            vbxAccessories.getChildren().forEach((node)->{
-                if(node instanceof CheckBox){
-                    ((CheckBox) node).setSelected(true);
-                }
+                carro.getCarroAcessorios().forEach((carroAcessorio)->{
+                    if(carroAcessorio.getAcessorio().getIdAcessorio().equals
+                       (accessory.getIdAcessorio())){
+                        acssCar.add(accessory);
+                    }
+                });
             });
             
+            //Change for selected the checkboxes for car
+            acssCar.forEach((acessory)->{
+                vbxAccessories.getChildren().forEach((node)->{
+                    if(node instanceof CheckBox){
+                        String nome = ((CheckBox) node).getText();
+                        if(nome.equals(acessory.getNomeAcessorio()))
+                        ((CheckBox) node).setSelected(true);
+                    }
+                });
+            });
         } catch (Exception e) {
         }
     }
