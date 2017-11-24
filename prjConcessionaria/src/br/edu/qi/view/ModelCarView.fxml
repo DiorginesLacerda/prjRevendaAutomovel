@@ -23,7 +23,7 @@
             <HBox alignment="CENTER">
                <children>
                   <Label text="Marca: " />
-                  <ComboBox fx:id="cbbxBrand" prefWidth="150.0" />
+                  <ComboBox fx:id="cbbxBrand" prefWidth="150.0" promptText="Selecione" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />

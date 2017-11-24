@@ -57,11 +57,12 @@ public abstract class GenericDao<T, ID extends Serializable> implements Serializ
     }
 
     public List<T> findAll() throws Exception {
-       // if (!s.isOpen() || s == null) { }
-        s = HibernateUtil.getSessionFactory().openSession();
+        if (s == null|| !s.isOpen())
+            s = HibernateUtil.getSessionFactory().openSession();
        
         List<T> lista = s.createCriteria(entity.getClass()).list();
-        s.close();
+        //s.close();
+        closeSession();
         return lista;
     }
 

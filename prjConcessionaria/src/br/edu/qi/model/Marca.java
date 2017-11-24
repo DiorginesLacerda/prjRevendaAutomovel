@@ -66,6 +66,12 @@ public class Marca  implements java.io.Serializable {
         this.modelos = modelos;
     }
 
+    @Override
+    public String toString() {
+        return this.nomeMarca;
+    }
+
+    
 
 
 

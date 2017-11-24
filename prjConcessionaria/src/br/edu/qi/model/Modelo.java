@@ -3,6 +3,7 @@ package br.edu.qi.model;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,16 +28,21 @@ public class Modelo  implements java.io.Serializable {
 
      private Integer idModelo;
      private Marca marca;
+    // private String nomeMarca;
      private String nomeModelo;
      private Set<Carro> carros = new HashSet<Carro>(0);
 
     public Modelo() {
+    //    if(marca!= null)
+    //        nomeMarca = marca.toString();
     }
 
     public Modelo(Marca marca, String nomeModelo, Set<Carro> carros) {
        this.marca = marca;
        this.nomeModelo = nomeModelo;
        this.carros = carros;
+       //if(marca!= null)
+         //   nomeMarca = marca.toString();
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -80,6 +86,43 @@ public class Modelo  implements java.io.Serializable {
         this.carros = carros;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.idModelo);
+        hash = 19 * hash + Objects.hashCode(this.marca);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Modelo other = (Modelo) obj;
+        if (!Objects.equals(this.idModelo, other.idModelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        return this.nomeModelo;
+    }
+
+    
 
 
 
