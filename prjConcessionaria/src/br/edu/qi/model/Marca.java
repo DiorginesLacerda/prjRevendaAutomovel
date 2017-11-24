@@ -65,6 +65,10 @@ public class Marca  implements java.io.Serializable {
     public void setModelos(Set<Modelo> modelos) {
         this.modelos = modelos;
     }
+    
+    public void addModelo(Modelo modelo){
+        this.modelos.add(modelo);
+    }
 
     @Override
     public String toString() {
