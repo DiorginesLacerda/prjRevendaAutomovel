@@ -10,7 +10,7 @@ import br.edu.qi.dao.ModeloDao;
 import br.edu.qi.model.Marca;
 import br.edu.qi.model.Modelo;
 import java.util.List;
-import java.util.Objects;
+
 
 /**
  *

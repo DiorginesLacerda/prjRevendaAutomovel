@@ -115,10 +115,10 @@ public class Modelo  implements java.io.Serializable {
         return true;
     }
     
-    
-
     @Override
     public String toString() {
+        if(this.marca!=null)
+            return this.marca.toString()+" : "+ this.nomeModelo;
         return this.nomeModelo;
     }
 

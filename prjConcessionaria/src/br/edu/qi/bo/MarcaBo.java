@@ -22,7 +22,6 @@ public class MarcaBo extends GenericBo<Marca>{
     
     public MarcaBo() throws Exception {
         super(MarcaDao.getInstance());
-        
     }
 
     @Override

@@ -70,7 +70,6 @@ public class ModelCarViewController implements Initializable {
             cbbxBrand.getSelectionModel().select(0);
         } catch (Exception e) {
         }
-        
     }
     
     private void loadScreen(){

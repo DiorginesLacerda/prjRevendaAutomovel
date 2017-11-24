@@ -6,7 +6,6 @@
 package br.edu.qi.controller;
 
 import br.edu.qi.bo.ProprietarioBo;
-import br.edu.qi.model.Acessorio;
 import br.edu.qi.model.Proprietario;
 import java.net.URL;
 import java.util.List;
