@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 7:26:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -82,15 +82,12 @@ public class Modelo  implements java.io.Serializable {
 
     @Override
     public String toString() {
-        if(this.marca!= null)
-            return this.marca+" "+this.nomeModelo;
+        if(this.marca!=null)
+                return this.marca.toString()+ " "+this.nomeModelo;
         return this.nomeModelo;
     }
-
     
-
-
-
+    
 }
 
 

@@ -41,12 +41,12 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="dconcessionaria"/>
-  <table-filter match-name="marca"/>
-  <table-filter match-name="proprietario"/>
   <table-filter match-name="venda"/>
   <table-filter match-name="acessorio"/>
-  <table-filter match-name="modelo"/>
+  <table-filter match-name="proprietario"/>
   <table-filter match-name="parcela"/>
+  <table-filter match-name="marca"/>
   <table-filter match-name="carro"/>
+  <table-filter match-name="modelo"/>
   <table-filter match-name="carro_acessorio"/>
 </hibernate-reverse-engineering>

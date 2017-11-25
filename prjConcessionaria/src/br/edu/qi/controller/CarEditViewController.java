@@ -13,6 +13,7 @@ import br.edu.qi.model.Acessorio;
 import br.edu.qi.model.Carro;
 import br.edu.qi.model.CarroAcessorio;
 import br.edu.qi.model.Modelo;
+import br.edu.qi.util.NumberUtil;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -186,6 +187,20 @@ public class CarEditViewController implements Initializable {
         return listCarroAcessorio;
     }
     
+    private String getTypeSelected(){
+        if(rbComercial.isSelected())
+            return rbComercial.getText();
+        if(rbEsportivo.isSelected())
+            return rbEsportivo.getText();
+        if(rbOffRoad.isSelected())
+            return rbOffRoad.getText();
+        if(rbPasseio.isSelected())
+            return rbPasseio.getText();
+        if(rbUtilitario.isSelected())
+            return rbPasseio.getText();
+        return "";
+    }
+    
     
     @FXML
     private void handlerRbUsado(ActionEvent event) {
@@ -218,13 +233,16 @@ public class CarEditViewController implements Initializable {
         showConsultCar();
     }
     
-    private void getDataScreen(){
+    private void getDataScreen() throws Exception{
         this.carro.setModelo(cbbxModelCar.getSelectionModel().getSelectedItem());
         this.carro.setCor(cbbxColorCar.getSelectionModel().getSelectedItem());
         this.carro.setDescricao(txDescription.getText());
         this.carro.setEstado(rbNovo.isSelected()?"Novo":"Usado");
-        this.carro.setKm(rbNovo.isSelected()?0:Long.parseLong(txKm.getText()));
+        this.carro.setKm(rbNovo.isSelected()?0:NumberUtil.setFloat(txKm.getText()));
         this.carro.setCarroAcessorios(getSelectedAccessories());
+        this.carro.setAno(txYear.getText());
+        this.carro.setTipo(getTypeSelected());
+        this.carro.setValor(NumberUtil.setFloat(txValueCar.getText()));
     }
     
     private void showConsultCar(){

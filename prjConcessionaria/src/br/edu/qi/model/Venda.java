@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 7:26:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -35,14 +35,14 @@ public class Venda  implements java.io.Serializable {
      private Date dataPagamento;
      private Character formaPagamento;
      private Integer nroParcelas;
-     private Long valor;
+     private Double valor;
      private Boolean liquidado;
      private Set<Parcela> parcelas = new HashSet<Parcela>(0);
 
     public Venda() {
     }
 
-    public Venda(Carro carro, Proprietario proprietario, Date dataVenda, Date dataPagamento, Character formaPagamento, Integer nroParcelas, Long valor, Boolean liquidado, Set<Parcela> parcelas) {
+    public Venda(Carro carro, Proprietario proprietario, Date dataVenda, Date dataPagamento, Character formaPagamento, Integer nroParcelas, Double valor, Boolean liquidado, Set<Parcela> parcelas) {
        this.carro = carro;
        this.proprietario = proprietario;
        this.dataVenda = dataVenda;
@@ -127,12 +127,12 @@ public class Venda  implements java.io.Serializable {
     }
 
     
-    @Column(name="valor", precision=10, scale=0)
-    public Long getValor() {
+    @Column(name="valor", precision=22, scale=0)
+    public Double getValor() {
         return this.valor;
     }
     
-    public void setValor(Long valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

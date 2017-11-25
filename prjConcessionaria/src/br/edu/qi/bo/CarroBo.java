@@ -20,6 +20,8 @@ public class CarroBo extends GenericBo<Carro>{
         super(CarroDao.getInstance());
     }
     
+    
+    
     public List<String> getColors(){
         List lista = new ArrayList();
         lista.add("Selecione");

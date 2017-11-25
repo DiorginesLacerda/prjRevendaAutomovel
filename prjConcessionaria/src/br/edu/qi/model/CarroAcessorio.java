@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 7:26:47 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;

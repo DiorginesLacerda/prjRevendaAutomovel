@@ -52,7 +52,7 @@ id_carro INTEGER,
 data_pagamento DATE,
 forma_pagamento CHAR(1),
 nro_parcelas INTEGER,
-valor DECIMAL,
+valor DOUBLE,
 liquidado BIT,
 FOREIGN KEY(proprietario_id) REFERENCES Proprietario (proprietario_id),
 FOREIGN KEY(id_carro) REFERENCES Carro (id_carro)
@@ -77,4 +77,4 @@ FOREIGN KEY(id_acessorio) REFERENCES Acessorio (id_acessorio),
 FOREIGN KEY(id_carro) REFERENCES Carro (id_carro)
 );
 
-# drop database dbrevenda;
+#drop database dconcessionaria;
