@@ -79,11 +79,11 @@
                                        <content>
                                           <VBox spacing="3.0">
                                              <children>
-                                                <RadioButton fx:id="rbNovo" mnemonicParsing="false" text="Novo">
+                                                <RadioButton fx:id="rbNovo" mnemonicParsing="false" onAction="#handlerRbNovo" text="Novo">
                                                    <toggleGroup>
                                                       <ToggleGroup fx:id="rgState" />
                                                    </toggleGroup></RadioButton>
-                                                <RadioButton fx:id="rbUsado" mnemonicParsing="false" text="Usado" toggleGroup="$rgState" />
+                                                <RadioButton fx:id="rbUsado" mnemonicParsing="false" onAction="#handlerRbUsado" text="Usado" toggleGroup="$rgState" />
                                              </children>
                                           </VBox>
                                        </content>

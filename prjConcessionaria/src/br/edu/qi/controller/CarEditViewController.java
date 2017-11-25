@@ -186,9 +186,27 @@ public class CarEditViewController implements Initializable {
         return listCarroAcessorio;
     }
     
+    
+    @FXML
+    private void handlerRbUsado(ActionEvent event) {
+        if(rbUsado.isSelected())
+            hbxKM.setVisible(true);
+    }
 
     @FXML
-    private void handlerBtnSaveCar(ActionEvent event) {
+    private void handlerRbNovo(ActionEvent event) {
+        if(rbNovo.isSelected()){
+            hbxKM.setVisible(false);
+            //txKm.setText("0");
+        }
+            
+    }
+            
+    @FXML
+    private void handlerBtnSaveCar(ActionEvent event) throws Exception {
+        getDataScreen();
+        bo.save(this.carro);
+        loadScreen();
     }
 
     @FXML
@@ -198,6 +216,15 @@ public class CarEditViewController implements Initializable {
     @FXML
     private void handlerBtnConsultCar(ActionEvent event) {
         showConsultCar();
+    }
+    
+    private void getDataScreen(){
+        this.carro.setModelo(cbbxModelCar.getSelectionModel().getSelectedItem());
+        this.carro.setCor(cbbxColorCar.getSelectionModel().getSelectedItem());
+        this.carro.setDescricao(txDescription.getText());
+        this.carro.setEstado(rbNovo.isSelected());
+        this.carro.setKm(rbNovo.isSelected()?0:Long.parseLong(txKm.getText()));
+        this.carro.setCarroAcessorios(getSelectedAccessories());
     }
     
     private void showConsultCar(){
