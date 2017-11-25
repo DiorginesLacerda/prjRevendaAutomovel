@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 19, 2017 7:44:42 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="acessorio"
-    ,catalog="dbrevenda"
+    ,catalog="dconcessionaria"
 )
 public class Acessorio  implements java.io.Serializable {
 

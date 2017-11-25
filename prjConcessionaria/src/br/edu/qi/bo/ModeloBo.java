@@ -26,7 +26,7 @@ public class ModeloBo extends GenericBo<Modelo>{
 
     @Override
     public List<Modelo> findAll() throws Exception {
-        List<Modelo> listModelos = super.findAllWithoutClose();
+        List<Modelo> listModelos = super.findAll();
         List<Marca> marcas = MarcaDao.getInstance().findAll();
         listModelos.forEach((modelo) -> {
             marcas.forEach((marca) -> {

@@ -222,7 +222,7 @@ public class CarEditViewController implements Initializable {
         this.carro.setModelo(cbbxModelCar.getSelectionModel().getSelectedItem());
         this.carro.setCor(cbbxColorCar.getSelectionModel().getSelectedItem());
         this.carro.setDescricao(txDescription.getText());
-        this.carro.setEstado(rbNovo.isSelected());
+        this.carro.setEstado(rbNovo.isSelected()?"Novo":"Usado");
         this.carro.setKm(rbNovo.isSelected()?0:Long.parseLong(txKm.getText()));
         this.carro.setCarroAcessorios(getSelectedAccessories());
     }

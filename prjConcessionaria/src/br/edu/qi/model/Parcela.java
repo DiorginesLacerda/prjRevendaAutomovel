@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 19, 2017 7:44:42 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="parcela"
-    ,catalog="dbrevenda"
+    ,catalog="dconcessionaria"
 )
 public class Parcela  implements java.io.Serializable {
 

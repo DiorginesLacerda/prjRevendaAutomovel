@@ -1,9 +1,8 @@
 package br.edu.qi.model;
-// Generated Nov 19, 2017 7:44:42 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,28 +20,23 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="modelo"
-    ,catalog="dbrevenda"
+    ,catalog="dconcessionaria"
 )
 public class Modelo  implements java.io.Serializable {
 
 
      private Integer idModelo;
      private Marca marca;
-    // private String nomeMarca;
      private String nomeModelo;
      private Set<Carro> carros = new HashSet<Carro>(0);
 
     public Modelo() {
-    //    if(marca!= null)
-    //        nomeMarca = marca.toString();
     }
 
     public Modelo(Marca marca, String nomeModelo, Set<Carro> carros) {
        this.marca = marca;
        this.nomeModelo = nomeModelo;
        this.carros = carros;
-       //if(marca!= null)
-         //   nomeMarca = marca.toString();
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -87,38 +81,9 @@ public class Modelo  implements java.io.Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.idModelo);
-        hash = 19 * hash + Objects.hashCode(this.marca);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Modelo other = (Modelo) obj;
-        if (!Objects.equals(this.idModelo, other.idModelo)) {
-            return false;
-        }
-        if (!Objects.equals(this.marca, other.marca)) {
-            return false;
-        }
-        return true;
-    }
-    
-    @Override
     public String toString() {
-        if(this.marca!=null)
-            return this.marca.toString()+" : "+ this.nomeModelo;
+        if(this.marca!= null)
+            return this.marca+" "+this.nomeModelo;
         return this.nomeModelo;
     }
 

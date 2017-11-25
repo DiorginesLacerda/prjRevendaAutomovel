@@ -1,5 +1,5 @@
 package br.edu.qi.model;
-// Generated Nov 19, 2017 7:44:42 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 5:45:32 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="carro"
-    ,catalog="dbrevenda"
+    ,catalog="dconcessionaria"
 )
 public class Carro  implements java.io.Serializable {
 
@@ -29,20 +29,26 @@ public class Carro  implements java.io.Serializable {
      private Modelo modelo;
      private String cor;
      private String descricao;
-     private Boolean estado;
+     private String estado;
      private Long km;
+     private Long valor;
+     private String ano;
+     private String tipo;
      private Set<CarroAcessorio> carroAcessorios = new HashSet<CarroAcessorio>(0);
      private Set<Venda> vendas = new HashSet<Venda>(0);
 
     public Carro() {
     }
 
-    public Carro(Modelo modelo, String cor, String descricao, Boolean estado, Long km, Set<CarroAcessorio> carroAcessorios, Set<Venda> vendas) {
+    public Carro(Modelo modelo, String cor, String descricao, String estado, Long km, Long valor, String ano, String tipo, Set<CarroAcessorio> carroAcessorios, Set<Venda> vendas) {
        this.modelo = modelo;
        this.cor = cor;
        this.descricao = descricao;
        this.estado = estado;
        this.km = km;
+       this.valor = valor;
+       this.ano = ano;
+       this.tipo = tipo;
        this.carroAcessorios = carroAcessorios;
        this.vendas = vendas;
     }
@@ -90,12 +96,12 @@ public class Carro  implements java.io.Serializable {
     }
 
     
-    @Column(name="estado")
-    public Boolean getEstado() {
+    @Column(name="estado", length=65535)
+    public String getEstado() {
         return this.estado;
     }
     
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -107,6 +113,36 @@ public class Carro  implements java.io.Serializable {
     
     public void setKm(Long km) {
         this.km = km;
+    }
+
+    
+    @Column(name="valor", precision=10, scale=0)
+    public Long getValor() {
+        return this.valor;
+    }
+    
+    public void setValor(Long valor) {
+        this.valor = valor;
+    }
+
+    
+    @Column(name="ano", length=65535)
+    public String getAno() {
+        return this.ano;
+    }
+    
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    
+    @Column(name="tipo", length=65535)
+    public String getTipo() {
+        return this.tipo;
+    }
+    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="carro")
