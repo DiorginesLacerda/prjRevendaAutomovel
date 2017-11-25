@@ -19,17 +19,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.function.Consumer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -52,6 +47,7 @@ public class CarEditViewController implements Initializable {
     private ModeloBo modeloBo;
     private AcessorioBo acessorioBo;
     private Carro carro;
+    private List<Acessorio>accessories;
     
     @FXML
     private ComboBox<Modelo> cbbxModelCar;
@@ -138,9 +134,8 @@ public class CarEditViewController implements Initializable {
     
     private void loadAccessories(){
         try {
-            List<Acessorio> accessories = acessorioBo.findAll();
+            this.accessories = acessorioBo.findAll();
             List<Acessorio> acssCar = new ArrayList<>();
-          //  Set<CarroAcessorio> setCarroAcessorio = new HashSet<>();
             
             //create the checkBoxes of Accessories
             accessories.forEach((accessory)->{
@@ -159,12 +154,36 @@ public class CarEditViewController implements Initializable {
                     if(node instanceof CheckBox){
                         String nome = ((CheckBox) node).getText();
                         if(nome.equals(acessory.getNomeAcessorio()))
-                        ((CheckBox) node).setSelected(true);
+                            ((CheckBox) node).setSelected(true);
                     }
                 });
             });
         } catch (Exception e) {
         }
+    }
+    
+    private Set<CarroAcessorio> getSelectedAccessories(){
+        //Busca os acessorios Selecionados
+        List<String>selectedAccessories = new ArrayList<>();
+        vbxAccessories.getChildren().forEach((node)->{
+            if(node instanceof CheckBox){
+                //Verifica se foi Selecionado
+                if(((CheckBox) node).selectedProperty().getValue()){
+                    selectedAccessories.add(((CheckBox) node).getText());
+                }
+            }
+        });
+        //Cria o Set para ser enviado
+        Set<CarroAcessorio> listCarroAcessorio = new HashSet<>();
+        selectedAccessories.forEach((textAcessory)->{
+            accessories.forEach((accessory)->{
+                if(accessory.getNomeAcessorio().equals(textAcessory)){
+                    listCarroAcessorio.add(new CarroAcessorio(accessory, carro));
+                }
+            });
+        });
+        
+        return listCarroAcessorio;
     }
     
 
