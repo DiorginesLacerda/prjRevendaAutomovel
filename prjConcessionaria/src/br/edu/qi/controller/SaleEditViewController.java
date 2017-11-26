@@ -140,6 +140,9 @@ public class SaleEditViewController implements Initializable {
         txCarDetails.setText("");
         txInstallment.setText("1");
         txTotValue.setText("");
+        lbInstallment.setText("0");
+        rbCash.setSelected(true);
+        hbxInstallment.setVisible(false);
     }
     
     private void loadClients(){
@@ -206,7 +209,7 @@ public class SaleEditViewController implements Initializable {
         this.sale = new Venda();
         this.sale.setCarro(car);
         this.sale.setProprietario(client);
-        this.sale.setDataPagamento(hoje);
+        //this.sale.setDataPagamento(hoje);
         this.sale.setDataVenda(hoje);
         this.sale.setFormaPagamento(getTypePayment());
         this.sale.setNroParcelas(txInstallment.getText().isEmpty()?0:NumberUtil.getInteger(txInstallment.getText()));
@@ -242,6 +245,7 @@ public class SaleEditViewController implements Initializable {
 
     @FXML
     private void handlerCancelSale(ActionEvent event) {
+        loadScreen();
     }
 
     @FXML

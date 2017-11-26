@@ -29,6 +29,12 @@ public class NumberUtil {
         return l/100;
     }
     
+    public static long DoubletoLong(Double d){
+        d *=100;
+        long l = d.longValue();
+        return l;
+    }
+    
     public static int getInteger(String s) throws Exception{
         try {
             return Integer.parseInt(s);
