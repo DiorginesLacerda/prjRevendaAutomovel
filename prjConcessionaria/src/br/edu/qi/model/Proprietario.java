@@ -35,6 +35,10 @@ public class Proprietario  implements java.io.Serializable {
 
     public Proprietario() {
     }
+    
+    public Proprietario(String nome) {
+        this.nome = nome;
+    }
 
     public Proprietario(String nome, String telefone, String email, String rua, String bairro, String cidade, String estado, Set<Venda> vendas) {
        this.nome = nome;
@@ -138,7 +142,14 @@ public class Proprietario  implements java.io.Serializable {
         this.vendas = vendas;
     }
 
-
+    @Override
+    public String toString() {
+        //if(this.email!=null || !this.email.isEmpty())
+        //    return this.nome+" "+this.email;
+        return this.nome;
+    }
+    
+    
 
 
 }

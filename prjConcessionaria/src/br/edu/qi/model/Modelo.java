@@ -33,6 +33,8 @@ public class Modelo  implements java.io.Serializable {
     public Modelo() {
     }
 
+    
+    
     public Modelo(Marca marca, String nomeModelo, Set<Carro> carros) {
        this.marca = marca;
        this.nomeModelo = nomeModelo;

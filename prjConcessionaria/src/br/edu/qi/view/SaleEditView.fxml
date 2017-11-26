@@ -16,15 +16,20 @@
                   <Label text="Registro de Nova Venda" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="5.0">
+            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="cbbxClient" prefHeight="25.0" prefWidth="350.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="1.0" prefHeight="1.0" prefWidth="400.0" spacing="5.0" visible="false">
                <children>
                   <Button mnemonicParsing="false" onAction="#handlerBtnSelectClient" text="Selecione um Cliente" />
                   <TextField fx:id="txClient" onMouseClicked="#handlerBtnSelectClient" prefHeight="25.0" prefWidth="251.0" />
                </children>
             </HBox>
-            <HBox prefWidth="200.0" spacing="5.0">
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handlerBtnSelectClient" text="Selecione um Veículo" />
+                  <ComboBox fx:id="cbbxCar" onAction="#hanclerSelectedCar" prefWidth="350.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
@@ -49,12 +54,12 @@
                   <RadioButton fx:id="rbInstallment" mnemonicParsing="false" text="Parcelado" toggleGroup="$rgTypePayment" />
                </children>
             </HBox>
-            <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="5.0">
+            <HBox fx:id="hboxParcelas" alignment="TOP_RIGHT" prefWidth="200.0" spacing="5.0">
                <children>
                   <Label text="Parcelas:" />
                   <TextField prefHeight="25.0" prefWidth="51.0" />
                   <Label text="X" />
-                  <Label text="Valor" />
+                  <Label fx:id="lbInstallment" text="0,00" />
                </children>
                <padding>
                   <Insets right="20.0" />

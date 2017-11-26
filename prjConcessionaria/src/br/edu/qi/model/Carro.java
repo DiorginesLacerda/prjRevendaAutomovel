@@ -37,6 +37,12 @@ public class Carro  implements java.io.Serializable {
      private Set<CarroAcessorio> carroAcessorios = new HashSet<CarroAcessorio>(0);
      private Set<Venda> vendas = new HashSet<Venda>(0);
 
+    public Carro(String nome, String estado) {
+        this.modelo = new Modelo();
+        this.modelo.setNomeModelo(nome);
+        this.estado = estado;
+    }
+    
     public Carro() {
     }
 
@@ -163,9 +169,16 @@ public class Carro  implements java.io.Serializable {
         this.vendas = vendas;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        if(this.estado == "")
+            return this.modelo.getNomeModelo();
+        String s = this.modelo.getNomeModelo() + " " +this.cor +" ano:"+this.ano;
+        return s;
+        
+    }
+    
+    
 }
 
 
