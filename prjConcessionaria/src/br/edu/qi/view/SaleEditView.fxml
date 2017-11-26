@@ -34,36 +34,44 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <TextArea fx:id="txCarDetails" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="txCarDetails" editable="false" prefHeight="200.0" prefWidth="200.0" />
                   <TitledPane animated="false" text="Acessórios">
                     <content>
-                      <AnchorPane fx:id="apAccessories" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane fx:id="apAccessories" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox fx:id="vbxAccessories" prefWidth="200.0" spacing="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
                     </content>
                   </TitledPane>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="5.0">
+            <HBox alignment="TOP_CENTER" prefWidth="200.0" spacing="10.0">
                <children>
                   <Label text="Valor Total:" />
-                  <TextField fx:id="txTotValue" />
-                  <RadioButton fx:id="rbCash" mnemonicParsing="false" text="A Vista">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="rgTypePayment" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="rbInstallment" mnemonicParsing="false" text="Parcelado" toggleGroup="$rgTypePayment" />
+                  <TextField fx:id="txTotValue" editable="false" />
+                  <VBox spacing="20.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rbCash" mnemonicParsing="false" onAction="#handlerRbCashSelected" selected="true" text="A Vista">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="rgTypePayment" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rbInstallment" mnemonicParsing="false" onAction="#handlerRbtallmentSelected" text="Parcelado" toggleGroup="$rgTypePayment" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbxInstallment" alignment="CENTER" spacing="5.0" visible="false">
+                           <children>
+                              <Label text="Parcelas:" />
+                              <TextField fx:id="txInstallment" alignment="CENTER" onAction="#handlerTxIstallment" prefHeight="25.0" prefWidth="51.0" />
+                              <Label text="X" />
+                              <Label fx:id="lbInstallment" text="0,00" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
-            </HBox>
-            <HBox fx:id="hboxParcelas" alignment="TOP_RIGHT" prefWidth="200.0" spacing="5.0">
-               <children>
-                  <Label text="Parcelas:" />
-                  <TextField prefHeight="25.0" prefWidth="51.0" />
-                  <Label text="X" />
-                  <Label fx:id="lbInstallment" text="0,00" />
-               </children>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
             </HBox>
             <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="10.0">
                <children>

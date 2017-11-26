@@ -20,4 +20,7 @@ public class VendaBo extends GenericBo<Venda>{
         super(VendaDao.getInstance());
     }
     
+    public float calculaparcela(Float valor, int parcela){
+        return valor/parcela;
+    }
 }

@@ -25,6 +25,27 @@ public class NumberUtil {
         return l/100;
     }
     
+    public static double LongtoDouble(Long l){
+        return l/100;
+    }
+    
+    public static int getInteger(String s) throws Exception{
+        try {
+            return Integer.parseInt(s);
+        } catch (Exception e) {
+            throw new Exception("Valor Inválido");
+        }
+    }
+    
+    
+    
+    public static double getDouble(String s) throws Exception{
+        try {
+            return Double.parseDouble(s);
+        } catch (Exception e) {
+            throw new Exception("Valor Inválido");
+        }
+    }
     
     
 }

@@ -2,6 +2,7 @@ package br.edu.qi.model;
 // Generated Nov 25, 2017 7:26:47 PM by Hibernate Tools 4.3.1
 
 
+import br.edu.qi.util.NumberUtil;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -167,6 +168,17 @@ public class Carro  implements java.io.Serializable {
     
     public void setVendas(Set<Venda> vendas) {
         this.vendas = vendas;
+    }
+    
+    public String getResume(){
+        
+        String s = this.modelo.getMarca().toString()+" "+this.modelo.getNomeModelo()+
+                "\nAno: "+this.ano+
+                "\nCor: "+this.cor+
+                "\n"+this.estado+ "  "+this.km.toString()+"km";
+                //+"\nPreço: R$ "+ String.format("%1$,.2f", NumberUtil.getFloat(this.valor));
+        //String.valueOf()
+        return s;
     }
 
     @Override
