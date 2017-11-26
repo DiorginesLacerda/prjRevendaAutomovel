@@ -131,9 +131,12 @@ public class CarEditViewController implements Initializable {
         txValueCar.setText("");
         rbNovo.setSelected(true);
         hbxKM.setVisible(false);
+        this.carro = new Carro();
+        loadAccessories();
     }
     
     private void loadAccessories(){
+        vbxAccessories.getChildren().clear();
         try {
             this.accessories = acessorioBo.findAll();
             List<Acessorio> acssCar = new ArrayList<>();
@@ -165,24 +168,33 @@ public class CarEditViewController implements Initializable {
     
     private Set<CarroAcessorio> getSelectedAccessories(){
         //Busca os acessorios Selecionados
-        List<String>selectedAccessories = new ArrayList<>();
+      //  List<String>selectedAccessories = new ArrayList<>();
+        Set<CarroAcessorio> listCarroAcessorio = new HashSet<>();
         vbxAccessories.getChildren().forEach((node)->{
             if(node instanceof CheckBox){
                 //Verifica se foi Selecionado
                 if(((CheckBox) node).selectedProperty().getValue()){
-                    selectedAccessories.add(((CheckBox) node).getText());
+                    String s = ((CheckBox) node).getText();
+                    //Cria o Set para ser enviado
+                    accessories.forEach((accessory)->{
+                            if(accessory.getNomeAcessorio().equals(s)){
+                                listCarroAcessorio.add(new CarroAcessorio(accessory, carro));
+                            }
+                    });
+                    
+                    //selectedAccessories.add(((CheckBox) node).getText());
                 }
             }
         });
-        //Cria o Set para ser enviado
-        Set<CarroAcessorio> listCarroAcessorio = new HashSet<>();
+        
+        /*
         selectedAccessories.forEach((textAcessory)->{
             accessories.forEach((accessory)->{
                 if(accessory.getNomeAcessorio().equals(textAcessory)){
                     listCarroAcessorio.add(new CarroAcessorio(accessory, carro));
                 }
             });
-        });
+        });*/
         
         return listCarroAcessorio;
     }
@@ -222,6 +234,7 @@ public class CarEditViewController implements Initializable {
         getDataScreen();
         bo.save(this.carro);
         loadScreen();
+        
     }
 
     @FXML

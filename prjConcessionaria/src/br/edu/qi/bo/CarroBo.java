@@ -6,11 +6,15 @@
 package br.edu.qi.bo;
 
 import br.edu.qi.dao.CarroDao;
-import br.edu.qi.dao.ModeloDao;
 import br.edu.qi.model.Carro;
+import br.edu.qi.model.CarroAcessorio;
 import br.edu.qi.model.Modelo;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,8 +22,11 @@ import java.util.List;
  */
 public class CarroBo extends GenericBo<Carro>{
     
+    private CarroAcessorioBo carroacessorioBo;
+    private Carro carro;
     public CarroBo() throws Exception {
         super(CarroDao.getInstance());
+        this.carroacessorioBo = new CarroAcessorioBo();
     }
     
     
@@ -39,10 +46,37 @@ public class CarroBo extends GenericBo<Carro>{
                    carro.setModelo(modelo);
            });
        });
-        
-        
         return  carros;//To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void save(Carro t) throws Exception {
+        super.save(t);
+        List<Carro> listCarro = findAll();
+        int i = 0;
+        listCarro.forEach((c)->{
+            if(c.getIdCarro()>i)
+                this.carro = c;
+        });
+        this.carro.setCarroAcessorios(t.getCarroAcessorios());
+        
+        
+        carro.getCarroAcessorios().forEach((carroAcessorio)->{
+            try {
+               // if(carroAcessorio.getAcessorio().getCarroAcessorios()==null){
+               //   carroAcessorio.getAcessorio().setCarroAcessorios(new HashSet<CarroAcessorio>(0));  
+                //}
+                //carroAcessorio.getAcessorio().getCarroAcessorios().add(carroAcessorio);
+                    
+                carroacessorioBo.save(carroAcessorio);
+            } catch (Exception ex) {
+                
+            }
+        });
+         //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     
     

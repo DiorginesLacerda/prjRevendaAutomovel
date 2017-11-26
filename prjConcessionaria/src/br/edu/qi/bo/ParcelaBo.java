@@ -39,7 +39,4 @@ public class ParcelaBo extends GenericBo<Parcela>{
         
          //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
 }

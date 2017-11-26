@@ -6,6 +6,8 @@
 package br.edu.qi.bo;
 
 import br.edu.qi.dao.CarroAcessorioDao;
+import br.edu.qi.model.Carro;
+import br.edu.qi.model.Acessorio;
 import br.edu.qi.model.CarroAcessorio;
 
 
@@ -18,5 +20,16 @@ public class CarroAcessorioBo extends GenericBo<CarroAcessorio>{
     public CarroAcessorioBo() throws Exception {
         super(CarroAcessorioDao.getInstance());
     }
+/*
+    @Override
+    public void save(CarroAcessorio t) throws Exception {
+        Carro carro = new Carro();
+        carro.setIdCarro(1);
+        Acessorio acessorio = new Acessorio();
+        acessorio.setIdAcessorio(2);
+        t = new CarroAcessorio(acessorio, carro);
+        super.save(t); //To change body of generated methods, choose Tools | Templates.
+    }*/
+    
     
 }
